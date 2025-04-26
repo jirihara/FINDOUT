@@ -2,27 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QR Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
-      height: 100vh;
-      background: black;
+      padding: 0;
+      height: 100%;
+      background-color: black;
       color: white;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700; /* Force bold everywhere */
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: 'Inter', sans-serif;
-      font-size: 5vw; /* Responsive font size */
+      flex-direction: column;
       text-align: center;
-      line-height: 1.2;
+    }
+    .text {
+      font-size: 15vw; /* Very big */
+      line-height: 1.1;
+      word-break: break-word;
+      font-weight: 700; /* Bold for safety */
+    }
+    @media (min-width: 768px) {
+      .text {
+        font-size: 8vw; /* Adjust slightly for bigger screens */
+      }
     }
   </style>
 </head>
 <body>
-  FUCK<br>YOU<br>🖕
+  <div class="text">
+    FUCK<br>YOU<br>🖕
+  </div>
 </body>
 </html>
