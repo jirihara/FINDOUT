@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QR Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     html, body {
       margin: 0;
@@ -13,29 +14,45 @@
       background-color: black;
       color: white;
       font-family: 'Inter', sans-serif;
-      font-weight: 700; /* Force bold everywhere */
+      font-weight: 700;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       text-align: center;
+      overflow: hidden;
     }
-    .text {
+    .text span {
+      display: block;
+      opacity: 0; /* Start hidden */
+      transform: scale(0.5); /* Start smaller */
       font-size: 30vw;
       line-height: 1.2;
       word-break: break-word;
-      font-weight: 700; /* Bold for safety */
+      font-weight: 700;
     }
     @media (min-width: 768px) {
-      .text {
-        font-size: 8vw; /* Adjust slightly for bigger screens */
+      .text span {
+        font-size: 8vw;
       }
     }
   </style>
 </head>
 <body>
   <div class="text">
-    FUCK<br>YOU<br>🖕
+    <span>FUCK</span>
+    <span>YOU</span>
+    <span>🖕</span>
   </div>
+
+  <script>
+    gsap.to(".text span", {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.3,
+      ease: "power3.out"
+    });
+  </script>
 </body>
 </html>
