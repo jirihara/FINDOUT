@@ -10,8 +10,8 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       width: 100%;
+      height: 100%;
       background-color: black;
       color: white;
       font-family: 'Inter', sans-serif;
@@ -27,30 +27,57 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 8vw;
       text-align: center;
       opacity: 0;
       transform: translateY(100%);
+      padding: 0 5vw;
     }
-    .emoji {
-      font-size: 18vw;
+    .slide-content {
+      width: 100%;
+      max-width: 90vw;
+      font-size: 12vw;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+    .emoji-content {
+      font-size: 20vw;
+      line-height: 1;
     }
     @media (max-width: 768px) {
-      .slide {
-        font-size: 6vw;
+      .slide-content {
+        font-size: 7vw;
       }
-      .emoji {
-        font-size: 22vw;
+      .emoji-content {
+        font-size: 24vw;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="slide" id="slide1">Ty si taký pojebanec,</div>
-  <div class="slide" id="slide2">že keby si bol test inteligencie,</div>
-  <div class="slide" id="slide3">aj kalkulačka by sa rozplakala!</div>
-  <div class="slide emoji" id="slide4">KOKOTKO🖕</div>
+  <div class="slide" id="slide1">
+    <div class="slide-content">
+      Ty si taký<br>pojebanec,
+    </div>
+  </div>
+
+  <div class="slide" id="slide2">
+    <div class="slide-content">
+      že keby si robil<br>test inteligencie,
+    </div>
+  </div>
+
+  <div class="slide" id="slide3">
+    <div class="slide-content">
+      aj kalkulačka<br>by sa rozplakala!
+    </div>
+  </div>
+
+  <div class="slide" id="slide4">
+    <div class="emoji-content">
+      FUCK<br>YOU<br>🖕
+    </div>
+  </div>
 
   <script>
     let tl = gsap.timeline({defaults: {ease: "power3.out"}});
