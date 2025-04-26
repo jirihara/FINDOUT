@@ -11,58 +11,58 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
       background-color: black;
       color: white;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
+      font-size: 8vw;
       text-align: center;
-      overflow: hidden;
+      opacity: 0;
+      transform: translateY(100%);
     }
-    .text span {
-      display: block;
-      opacity: 0; /* Start hidden */
-      transform: scale(0.5); /* Start smaller */
-      font-size: 30vw;
-      line-height: 1.2;
-      word-break: break-word;
-      font-weight: 700;
+    .emoji {
+      font-size: 18vw;
     }
-    @media (min-width: 768px) {
-      .text span {
-        font-size: 8vw;
+    @media (max-width: 768px) {
+      .slide {
+        font-size: 6vw;
+      }
+      .emoji {
+        font-size: 22vw;
       }
     }
   </style>
 </head>
 <body>
-  <div class="text">
-    <span>FUCK</span>
-    <span>YOU</span>
-    <span>🖕</span>
-  </div>
+
+  <div class="slide" id="slide1">Ty si taký pojebanec,</div>
+  <div class="slide" id="slide2">že keby si bol test inteligencie,</div>
+  <div class="slide" id="slide3">aj kalkulačka by sa rozplakala!</div>
+  <div class="slide emoji" id="slide4">KOKOTKO🖕</div>
 
   <script>
-    // Animate multi-color background flash
-    gsap.timeline()
-      .to("body", { backgroundColor: "#800080", duration: 0.2, ease: "power1.inOut" }) // purple
-      .to("body", { backgroundColor: "#00FF00", duration: 0.2, ease: "power1.inOut" }) // green
-      .to("body", { backgroundColor: "#000000", duration: 0.2, ease: "power1.inOut" }) // black
-      .to("body", { backgroundColor: "#FF0000", duration: 0.2, ease: "power1.inOut" }) // red
-      .to("body", { backgroundColor: "#000000", duration: 0.2, ease: "power1.inOut" }); // final black
+    let tl = gsap.timeline({defaults: {ease: "power3.out"}});
 
-    // Animate text staggered after color flashes
-    gsap.to(".text span", {
-      opacity: 1,
-      scale: 1,
-      duration: 0.8,
-      stagger: 0.3,
-      ease: "power3.out",
-      delay: 1.2 // Adjust delay to match after color flashes
-    });
+    tl.to("#slide1", {opacity: 1, y: 0, duration: 0.8})
+      .to("#slide1", {opacity: 0, y: -100, duration: 0.8, delay: 1.2})
+      .to("#slide2", {opacity: 1, y: 0, duration: 0.8})
+      .to("#slide2", {opacity: 0, y: -100, duration: 0.8, delay: 1.2})
+      .to("#slide3", {opacity: 1, y: 0, duration: 0.8})
+      .to("#slide3", {opacity: 0, y: -100, duration: 0.8, delay: 1.2})
+      .to("#slide4", {opacity: 1, y: 0, scale: 1.2, duration: 1, ease: "bounce.out"});
   </script>
+
 </body>
 </html>
