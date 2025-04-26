@@ -17,37 +17,25 @@
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       overflow: hidden;
-    }
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       text-align: center;
-      opacity: 0;
-      transform: translateY(100%);
-      padding: 0 5vw;
     }
-    .slide-content {
-      width: 100%;
-      max-width: 90vw;
-      font-size: 12vw;
-      line-height: 1.2;
-      word-break: break-word;
+    .text {
+      font-size: 10vw;
+      line-height: 1.1;
     }
-    .emoji-content {
+    .emoji {
       font-size: 20vw;
-      line-height: 1;
+      margin-top: 1rem;
     }
     @media (max-width: 768px) {
-      .slide-content {
-        font-size: 7vw;
+      .text {
+        font-size: 9vw;
       }
-      .emoji-content {
+      .emoji {
         font-size: 24vw;
       }
     }
@@ -55,40 +43,16 @@
 </head>
 <body>
 
-  <div class="slide" id="slide1">
-    <div class="slide-content">
-      Ty si taký<br>pojebanec,
-    </div>
+  <div class="text" id="text">
+    SAM SI<br>PIČA
   </div>
-
-  <div class="slide" id="slide2">
-    <div class="slide-content">
-      že keby si robil<br>test inteligencie,
-    </div>
-  </div>
-
-  <div class="slide" id="slide3">
-    <div class="slide-content">
-      aj kalkulačka<br>by sa rozplakala!
-    </div>
-  </div>
-
-  <div class="slide" id="slide4">
-    <div class="emoji-content">
-      FUCK<br>YOU<br>🖕
-    </div>
-  </div>
+  <div class="emoji" id="emoji">🖕</div>
 
   <script>
     let tl = gsap.timeline({defaults: {ease: "power3.out"}});
 
-    tl.to("#slide1", {opacity: 1, y: 0, duration: 0.8})
-      .to("#slide1", {opacity: 0, y: -100, duration: 0.8, delay: 1.2})
-      .to("#slide2", {opacity: 1, y: 0, duration: 0.8})
-      .to("#slide2", {opacity: 0, y: -100, duration: 0.8, delay: 1.2})
-      .to("#slide3", {opacity: 1, y: 0, duration: 0.8})
-      .to("#slide3", {opacity: 0, y: -100, duration: 0.8, delay: 1.2})
-      .to("#slide4", {opacity: 1, y: 0, scale: 1.2, duration: 1, ease: "bounce.out"});
+    tl.from("#text", {opacity: 0, scale: 0.5, duration: 1})
+      .from("#emoji", {opacity: 0, scale: 0.5, duration: 1, ease: "bounce.out"});
   </script>
 
 </body>
