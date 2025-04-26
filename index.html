@@ -46,12 +46,22 @@
   </div>
 
   <script>
+    // Animate multi-color background flash
+    gsap.timeline()
+      .to("body", { backgroundColor: "#800080", duration: 0.2, ease: "power1.inOut" }) // purple
+      .to("body", { backgroundColor: "#00FF00", duration: 0.2, ease: "power1.inOut" }) // green
+      .to("body", { backgroundColor: "#000000", duration: 0.2, ease: "power1.inOut" }) // black
+      .to("body", { backgroundColor: "#FF0000", duration: 0.2, ease: "power1.inOut" }) // red
+      .to("body", { backgroundColor: "#000000", duration: 0.2, ease: "power1.inOut" }); // final black
+
+    // Animate text staggered after color flashes
     gsap.to(".text span", {
       opacity: 1,
       scale: 1,
       duration: 0.8,
       stagger: 0.3,
-      ease: "power3.out"
+      ease: "power3.out",
+      delay: 1.2 // Adjust delay to match after color flashes
     });
   </script>
 </body>
